@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Language" syncable="YES">
+        <attribute name="code" attributeType="String" syncable="YES"/>
+        <attribute name="longName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="localisedStrings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Translation" inverseName="language" inverseEntity="Translation" syncable="YES"/>
+    </entity>
+    <entity name="LocalisableString" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" attributeType="String" syncable="YES"/>
+        <relationship name="translations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Translation" inverseName="localisableString" inverseEntity="Translation" syncable="YES"/>
+    </entity>
+    <entity name="ProjectOrTable" syncable="YES">
+        <attribute name="bundleIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Translation" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="string" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="language" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Language" inverseName="localisedStrings" inverseEntity="Language" syncable="YES"/>
+        <relationship name="localisableString" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LocalisableString" inverseName="translations" inverseEntity="LocalisableString" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Language" positionX="241" positionY="213" width="128" height="88"/>
+        <element name="LocalisableString" positionX="241" positionY="315" width="128" height="88"/>
+        <element name="Translation" positionX="441" positionY="261" width="128" height="103"/>
+        <element name="ProjectOrTable" positionX="549" positionY="99" width="128" height="103"/>
+    </elements>
+</model>
